@@ -1,9 +1,5 @@
 import	ply.lex as lex
-import subprocess
 from utils import slurp
-
-from tkinter import Tk
-from tkinter.filedialog import askopenfilename
 
 n_tests = 0 #quantidade total de testes
 n_ok_tests = 0 #quantidade total de ok testes
@@ -27,15 +23,15 @@ def t_COMMENT(t):
     return t
 
 def t_N_TESTS(t):
-    r"[0-9]\.\.[0-9]"
+    r"[0-9]\.\.[0-9]+"
     global n_tests 
-    n_tests += int(t.value[3])
+    n_tests += int(t.value[3:])
     return t
 
 def t_N_SUBTESTS(t):
-    r"\s[0-9]\.\.[0-9]"
+    r"\s[0-9]\.\.[0-9]+"
     global n_subtests 
-    n_subtests += int(t.value.strip()[3])
+    n_subtests += int(t.value.strip()[3:])
     return t
 
 def t_OK_TEST(t):
@@ -64,12 +60,7 @@ def t_NOK_SUBTEST(t):
 
 lexer = lex.lex()
 
-#Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
-#filename = askopenfilename() # show an "Open" dialog box and return the path to the selected file
-#print(filename)
-
 lexer.input(slurp("inputs/teste3.t"))
-
 
 for token in iter(lexer.token, None):
     print(token)
