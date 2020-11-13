@@ -1,0 +1,24 @@
+{
+    "items": [{
+            "data": "12/11",
+            "nok_subtest": "4",
+            "nok_test": "2",
+            "ok_subtest": "3",
+            "ok_test": "5"
+        },
+        {
+            "data": "13/11",
+            "nok_subtest": "10",
+            "nok_test": "8",
+            "ok_subtest": "9",
+            "ok_test": "7"
+        },
+        {
+            "data": "14/11",
+            "nok_subtest": "8",
+            "nok_test": "10",
+            "ok_subtest": "2",
+            "ok_test": "15"
+        }
+    ]
+}
